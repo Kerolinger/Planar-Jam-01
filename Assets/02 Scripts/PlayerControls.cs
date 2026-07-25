@@ -118,6 +118,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CameraSnapTaken"",
+                    ""type"": ""Button"",
+                    ""id"": ""52b7c730-896a-4de8-a999-b52d51a205ea"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -197,6 +206,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""CameraSnap"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0cd99621-f5d6-47a7-8164-ee53dbce6bba"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CameraSnapTaken"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -208,6 +228,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_PlayerMovement_Movement = m_PlayerMovement.FindAction("Movement", throwIfNotFound: true);
         m_PlayerMovement_Camera = m_PlayerMovement.FindAction("Camera", throwIfNotFound: true);
         m_PlayerMovement_CameraSnap = m_PlayerMovement.FindAction("CameraSnap", throwIfNotFound: true);
+        m_PlayerMovement_CameraSnapTaken = m_PlayerMovement.FindAction("CameraSnapTaken", throwIfNotFound: true);
     }
 
     ~@PlayerControls()
@@ -291,6 +312,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerMovement_Movement;
     private readonly InputAction m_PlayerMovement_Camera;
     private readonly InputAction m_PlayerMovement_CameraSnap;
+    private readonly InputAction m_PlayerMovement_CameraSnapTaken;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player Movement".
     /// </summary>
@@ -314,6 +336,10 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "PlayerMovement/CameraSnap".
         /// </summary>
         public InputAction @CameraSnap => m_Wrapper.m_PlayerMovement_CameraSnap;
+        /// <summary>
+        /// Provides access to the underlying input action "PlayerMovement/CameraSnapTaken".
+        /// </summary>
+        public InputAction @CameraSnapTaken => m_Wrapper.m_PlayerMovement_CameraSnapTaken;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -349,6 +375,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @CameraSnap.started += instance.OnCameraSnap;
             @CameraSnap.performed += instance.OnCameraSnap;
             @CameraSnap.canceled += instance.OnCameraSnap;
+            @CameraSnapTaken.started += instance.OnCameraSnapTaken;
+            @CameraSnapTaken.performed += instance.OnCameraSnapTaken;
+            @CameraSnapTaken.canceled += instance.OnCameraSnapTaken;
         }
 
         /// <summary>
@@ -369,6 +398,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @CameraSnap.started -= instance.OnCameraSnap;
             @CameraSnap.performed -= instance.OnCameraSnap;
             @CameraSnap.canceled -= instance.OnCameraSnap;
+            @CameraSnapTaken.started -= instance.OnCameraSnapTaken;
+            @CameraSnapTaken.performed -= instance.OnCameraSnapTaken;
+            @CameraSnapTaken.canceled -= instance.OnCameraSnapTaken;
         }
 
         /// <summary>
@@ -430,5 +462,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnCameraSnap(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "CameraSnapTaken" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnCameraSnapTaken(InputAction.CallbackContext context);
     }
 }

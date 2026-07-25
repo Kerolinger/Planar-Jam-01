@@ -47,8 +47,10 @@ GameObject:
   - component: {fileID: 705450561122717557}
   - component: {fileID: 4965408954340154051}
   - component: {fileID: 896486338442995983}
+  - component: {fileID: 7958718167006376207}
+  - component: {fileID: 6199385130228247682}
   m_Layer: 5
-  m_Name: Image
+  m_Name: IMG_WhiteBlink
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61,12 +63,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5167528395072340437}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 8.282909, y: 4.4472, z: 4.4472}
+  m_LocalScale: {x: 8.28291, y: 4.4472003, z: 4.4472003}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2747073625515057641}
+  m_Father: {fileID: 8100541851168797386}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -111,42 +113,40 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!1 &6692344795983934605
-GameObject:
+--- !u!95 &7958718167006376207
+Animator:
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2747073625515057641}
-  m_Layer: 5
-  m_Name: _CameraSnap
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &2747073625515057641
-RectTransform:
+  m_GameObject: {fileID: 5167528395072340437}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4f570f0ad5acbbf409434fbe6af2c3c6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6199385130228247682
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6692344795983934605}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 705450561122717557}
-  m_Father: {fileID: 8100541851168797386}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_GameObject: {fileID: 5167528395072340437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5e0c33c0837f7c40b8d9b85aa18d979, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7291274102292188918
 GameObject:
   m_ObjectHideFlags: 0
@@ -159,6 +159,7 @@ GameObject:
   - component: {fileID: 4383198280809791694}
   - component: {fileID: 6681025846919099234}
   - component: {fileID: 3018822131580925049}
+  - component: {fileID: 8023255362868358528}
   m_Layer: 5
   m_Name: HUD
   m_TagString: Untagged
@@ -179,7 +180,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2884486573134752772}
-  - {fileID: 2747073625515057641}
+  - {fileID: 705450561122717557}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -250,6 +251,20 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &8023255362868358528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7291274102292188918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a03dd00f4688ef749b6f1a90149023fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_cameraUI: {fileID: 1877532507335224862}
+  m_cameraSnapFX: {fileID: 0}
 --- !u!1001 &3882827510827101297
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -344,7 +359,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7883740021106059172, guid: 29fb173b026a0bc448c3bf17cb082895, type: 3}
       propertyPath: m_Name
-      value: TXT_DefaultText
+      value: TXT_REC
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

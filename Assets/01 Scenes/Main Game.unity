@@ -129,11 +129,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5165513743386186326, guid: 890d420a0daee9d4faa3e8cfd506e5bc, type: 3}
   m_PrefabInstance: {fileID: 7406260886524231953}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1092523804 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6718131058211394688, guid: 890d420a0daee9d4faa3e8cfd506e5bc, type: 3}
-  m_PrefabInstance: {fileID: 7406260886524231953}
+--- !u!114 &567412699 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8023255362868358528, guid: 159b68fd460e835479815a0b918e853d, type: 3}
+  m_PrefabInstance: {fileID: 2464357846928381725}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a03dd00f4688ef749b6f1a90149023fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1150790484 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8774200000472983364, guid: 890d420a0daee9d4faa3e8cfd506e5bc, type: 3}
@@ -445,6 +451,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f6ae99bc38b4834c94b9d2f0ff2140e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2094001916 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5167528395072340437, guid: 159b68fd460e835479815a0b918e853d, type: 3}
+  m_PrefabInstance: {fileID: 2464357846928381725}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &799697251226831285
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -494,6 +505,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5720087161054027597, guid: 8acdae7945eddc046b3d5c5214416d15, type: 3}
+      propertyPath: uiManager
+      value: 
+      objectReference: {fileID: 567412699}
+    - target: {fileID: 5720087161054027597, guid: 8acdae7945eddc046b3d5c5214416d15, type: 3}
       propertyPath: cameraManager
       value: 
       objectReference: {fileID: 1150790484}
@@ -518,10 +533,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5167528395072340437, guid: 159b68fd460e835479815a0b918e853d, type: 3}
+      propertyPath: m_Name
+      value: IMG_WhiteBlink
+      objectReference: {fileID: 0}
+    - target: {fileID: 5167528395072340437, guid: 159b68fd460e835479815a0b918e853d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6692344795983934605, guid: 159b68fd460e835479815a0b918e853d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7291274102292188918, guid: 159b68fd460e835479815a0b918e853d, type: 3}
       propertyPath: m_Name
       value: HUD
       objectReference: {fileID: 0}
+    - target: {fileID: 8023255362868358528, guid: 159b68fd460e835479815a0b918e853d, type: 3}
+      propertyPath: m_cameraSnapFX
+      value: 
+      objectReference: {fileID: 2094001916}
     - target: {fileID: 8100541851168797386, guid: 159b68fd460e835479815a0b918e853d, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -664,6 +695,14 @@ PrefabInstance:
       value: Camera Manager
       objectReference: {fileID: 0}
     - target: {fileID: 8774200000472983364, guid: 890d420a0daee9d4faa3e8cfd506e5bc, type: 3}
+      propertyPath: uiManager
+      value: 
+      objectReference: {fileID: 567412699}
+    - target: {fileID: 8774200000472983364, guid: 890d420a0daee9d4faa3e8cfd506e5bc, type: 3}
+      propertyPath: cameraPivot
+      value: 
+      objectReference: {fileID: 28898289}
+    - target: {fileID: 8774200000472983364, guid: 890d420a0daee9d4faa3e8cfd506e5bc, type: 3}
       propertyPath: inputManager
       value: 
       objectReference: {fileID: 1636985764}
@@ -678,7 +717,7 @@ PrefabInstance:
     - target: {fileID: 8774200000472983364, guid: 890d420a0daee9d4faa3e8cfd506e5bc, type: 3}
       propertyPath: cameraPivot_first
       value: 
-      objectReference: {fileID: 1092523804}
+      objectReference: {fileID: 0}
     - target: {fileID: 8774200000472983364, guid: 890d420a0daee9d4faa3e8cfd506e5bc, type: 3}
       propertyPath: cameraPivot_third
       value: 
@@ -701,10 +740,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9155686719290679988, guid: 890d420a0daee9d4faa3e8cfd506e5bc, type: 3}
       propertyPath: m_Name
-      value: Camera Pivot - 3rd Person
+      value: Camera Pivot
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7341432130637586637, guid: 890d420a0daee9d4faa3e8cfd506e5bc, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 890d420a0daee9d4faa3e8cfd506e5bc, type: 3}

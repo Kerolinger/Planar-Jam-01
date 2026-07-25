@@ -14,24 +14,25 @@ public class CameraManager : MonoBehaviour
     [Header("References")]
     [SerializeField] private Transform targetTransform;
     [SerializeField] private Transform cameraTransform;
-    [SerializeField] private Transform cameraPivot_third;
-    [SerializeField] private Transform cameraPivot_first;
+    [SerializeField] private Transform cameraPivot;
     [SerializeField] private InputManager inputManager;
+    [SerializeField] private UiManager uiManager;
 
     private Vector3 cameraFollowVelocity = Vector3.zero;
 
     [Header("Debugging")]
     private float lookAngle; //Camera look up and down
     private float pivotAngle; //Camera look left and right
-    private cameraMode currentCameraMode = cameraMode.ThirdPerson;
+    public cameraMode currentCameraMode = cameraMode.ThirdPerson;
 
-    private enum cameraMode {FirstPerson,ThirdPerson};
+    public cameraMode CurrentCameraMode { get => currentCameraMode; set => currentCameraMode = value; }
+
+    public enum cameraMode {FirstPerson,ThirdPerson};
 
     private void Start()
     {
         Cursor.visible = false;
-
-        cameraTransform.parent = cameraPivot_third;
+        cameraTransform.transform.localPosition = new Vector3(cameraTransform.transform.localPosition.x, 1, -10f);
     }
     public void FollowTarget()
     {
@@ -43,8 +44,8 @@ public class CameraManager : MonoBehaviour
     {
         lookAngle = lookAngle + (inputManager.cam_horizontalInput * cameraLookSpeed);
         pivotAngle = pivotAngle - (inputManager.cam_verticalInput * cameraPivotSpeed);
-        pivotAngle = Mathf.Clamp(pivotAngle, currentCameraMode == cameraMode.FirstPerson ? minimumPivotAngle_first : minimumPivotAngle_third,
-                                             currentCameraMode == cameraMode.FirstPerson ? maximumPivotAngle_first : maximumPivotAngle_third);
+        pivotAngle = Mathf.Clamp(pivotAngle, CurrentCameraMode == cameraMode.FirstPerson ? minimumPivotAngle_first : minimumPivotAngle_third,
+                                             CurrentCameraMode == cameraMode.FirstPerson ? maximumPivotAngle_first : maximumPivotAngle_third);
 
         Vector3 rotation = Vector3.zero;
         rotation.y = lookAngle;
@@ -54,20 +55,21 @@ public class CameraManager : MonoBehaviour
         rotation = Vector3.zero;
         rotation.x = pivotAngle;
         targetRotation = Quaternion.Euler(rotation);
-        cameraPivot_third.localRotation = targetRotation;
-        cameraPivot_first.localRotation = targetRotation;
+        cameraPivot.localRotation = targetRotation;
     }
     public void SwitchCameraMode()
     {
-        if (currentCameraMode == cameraMode.FirstPerson)
+        uiManager.ToggleFirstPersonUI();
+
+        if (CurrentCameraMode == cameraMode.FirstPerson)
         {
-            currentCameraMode = cameraMode.ThirdPerson;
+            CurrentCameraMode = cameraMode.ThirdPerson;
             cameraTransform.transform.localPosition = new Vector3(cameraTransform.transform.localPosition.x, 1, -10f);
         }
         else
         {
-            currentCameraMode = cameraMode.FirstPerson;
-            cameraTransform.transform.localPosition = new Vector3(cameraTransform.transform.localPosition.x, 0, -4f);
+            CurrentCameraMode = cameraMode.FirstPerson;
+            cameraTransform.transform.localPosition = new Vector3(cameraTransform.transform.localPosition.x, 0, -4f);      
         }
 
     }

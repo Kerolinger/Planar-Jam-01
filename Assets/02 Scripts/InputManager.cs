@@ -8,6 +8,7 @@ public class InputManager : MonoBehaviour
     [SerializeField] private Transform cameraTransform;
     [SerializeField] private Rigidbody playerRigidbody;
     [SerializeField] private CameraManager cameraManager;
+    [SerializeField] private UiManager uiManager;
 
     [Header("Customizable")]
     [SerializeField] private float movementSpeed;
@@ -34,6 +35,7 @@ public class InputManager : MonoBehaviour
             playerControls.PlayerMovement.Movement.performed += i => movementInput = i.ReadValue<Vector2>();
             playerControls.PlayerMovement.Camera.performed += i => cameraInput = i.ReadValue<Vector2>();
             playerControls.PlayerMovement.CameraSnap.performed += OnCameraSnap;
+            playerControls.PlayerMovement.CameraSnapTaken.performed += OnCameraSnapTaken;
         }
 
         playerControls.Enable();
@@ -103,5 +105,11 @@ public class InputManager : MonoBehaviour
     private void OnCameraSnap(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
         cameraManager.SwitchCameraMode();
+    }
+
+    private void OnCameraSnapTaken(UnityEngine.InputSystem.InputAction.CallbackContext context)
+    {
+        if(cameraManager.CurrentCameraMode == CameraManager.cameraMode.FirstPerson)
+            uiManager.CameraSnapFX();
     }
 }
