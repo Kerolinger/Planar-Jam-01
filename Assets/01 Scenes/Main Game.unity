@@ -119,9 +119,19 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &28898289 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3047331589480615781, guid: 890d420a0daee9d4faa3e8cfd506e5bc, type: 3}
+  m_PrefabInstance: {fileID: 7406260886524231953}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &539364223 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5165513743386186326, guid: 890d420a0daee9d4faa3e8cfd506e5bc, type: 3}
+  m_PrefabInstance: {fileID: 7406260886524231953}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1092523804 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6718131058211394688, guid: 890d420a0daee9d4faa3e8cfd506e5bc, type: 3}
   m_PrefabInstance: {fileID: 7406260886524231953}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1150790484 stripped
@@ -645,6 +655,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5165513743386186326, guid: 890d420a0daee9d4faa3e8cfd506e5bc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -7
+      objectReference: {fileID: 0}
     - target: {fileID: 8040895768698423804, guid: 890d420a0daee9d4faa3e8cfd506e5bc, type: 3}
       propertyPath: m_Name
       value: Camera Manager
@@ -654,9 +668,41 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1636985764}
     - target: {fileID: 8774200000472983364, guid: 890d420a0daee9d4faa3e8cfd506e5bc, type: 3}
+      propertyPath: cameraTransform
+      value: 
+      objectReference: {fileID: 539364223}
+    - target: {fileID: 8774200000472983364, guid: 890d420a0daee9d4faa3e8cfd506e5bc, type: 3}
       propertyPath: targetTransform
       value: 
       objectReference: {fileID: 1636985763}
+    - target: {fileID: 8774200000472983364, guid: 890d420a0daee9d4faa3e8cfd506e5bc, type: 3}
+      propertyPath: cameraPivot_first
+      value: 
+      objectReference: {fileID: 1092523804}
+    - target: {fileID: 8774200000472983364, guid: 890d420a0daee9d4faa3e8cfd506e5bc, type: 3}
+      propertyPath: cameraPivot_third
+      value: 
+      objectReference: {fileID: 28898289}
+    - target: {fileID: 8774200000472983364, guid: 890d420a0daee9d4faa3e8cfd506e5bc, type: 3}
+      propertyPath: maximumPivotAngle_first
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8774200000472983364, guid: 890d420a0daee9d4faa3e8cfd506e5bc, type: 3}
+      propertyPath: maximumPivotAngle_third
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8774200000472983364, guid: 890d420a0daee9d4faa3e8cfd506e5bc, type: 3}
+      propertyPath: minimumPivotAngle_first
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8774200000472983364, guid: 890d420a0daee9d4faa3e8cfd506e5bc, type: 3}
+      propertyPath: minimumPivotAngle_third
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 9155686719290679988, guid: 890d420a0daee9d4faa3e8cfd506e5bc, type: 3}
+      propertyPath: m_Name
+      value: Camera Pivot - 3rd Person
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

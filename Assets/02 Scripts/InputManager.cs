@@ -102,6 +102,6 @@ public class InputManager : MonoBehaviour
 
     private void OnCameraSnap(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
-        Debug.Log("camera snap!");
+        cameraManager.SwitchCameraMode();
     }
 }
