@@ -17,6 +17,7 @@ public class InputManager : MonoBehaviour
     [Header("Debugging")]
     public Vector2 movementInput;
     public Vector2 cameraInput;
+    public Vector2 zoomInput;
 
     public float cam_verticalInput;
     public float cam_horizontalInput;
@@ -34,11 +35,14 @@ public class InputManager : MonoBehaviour
             playerControls = new PlayerControls();
             playerControls.PlayerMovement.Movement.performed += i => movementInput = i.ReadValue<Vector2>();
             playerControls.PlayerMovement.Camera.performed += i => cameraInput = i.ReadValue<Vector2>();
+            playerControls.PlayerMovement.CameraZoom.performed += i => zoomInput = i.ReadValue<Vector2>();
             playerControls.PlayerMovement.CameraSnap.performed += OnCameraSnap;
             playerControls.PlayerMovement.CameraSnapTaken.performed += OnCameraSnapTaken;
         }
 
         playerControls.Enable();
+
+        AudioManager.instance.Play("Forest_ambience");
     }
 
     private void OnDisable()
@@ -94,6 +98,7 @@ public class InputManager : MonoBehaviour
     {
         HandleMovement();
         HandleRotation();
+        HandleZoom();
     }
 
     private void LateUpdate()
@@ -109,7 +114,19 @@ public class InputManager : MonoBehaviour
 
     private void OnCameraSnapTaken(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
-        if(cameraManager.CurrentCameraMode == CameraManager.cameraMode.FirstPerson)
+        if (cameraManager.CurrentCameraMode == CameraManager.cameraMode.FirstPerson)
+        {
             uiManager.CameraSnapFX();
+            AudioManager.instance.Play("SFX_cameraSnap");
+        }
     }
+
+    private void HandleZoom()
+    {
+        if (cameraManager.CurrentCameraMode != CameraManager.cameraMode.FirstPerson)
+            return;
+
+        uiManager.ZoomCircle(zoomInput.y);
+    }
+
 }
