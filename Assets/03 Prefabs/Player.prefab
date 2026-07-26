@@ -295,6 +295,7 @@ MonoBehaviour:
   cameraTransform: {fileID: 0}
   playerRigidbody: {fileID: 562879900855448131}
   cameraManager: {fileID: 0}
+  uiManager: {fileID: 0}
   movementSpeed: 5
   rotationSpeed: 15
   movementInput: {x: 0, y: 0}

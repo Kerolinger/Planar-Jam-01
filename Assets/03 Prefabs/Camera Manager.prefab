@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5165513743386186326}
   - component: {fileID: 80327103329275755}
   - component: {fileID: 1218366557471432068}
+  - component: {fileID: 5034596608149028020}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -92,37 +93,66 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7212858816143205973}
   m_Enabled: 1
---- !u!1 &7341432130637586637
-GameObject:
+--- !u!114 &5034596608149028020
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6718131058211394688}
-  m_Layer: 0
-  m_Name: Camera Pivot - 1st Person
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6718131058211394688
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7341432130637586637}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.31, z: 8}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4990637958752395896}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 7212858816143205973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeTrigger: {fileID: 5165513743386186326}
+  volumeLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  stopNaNPropagation: 1
+  finalBlitToCameraTarget: 0
+  antialiasingMode: 0
+  temporalAntialiasing:
+    jitterSpread: 0.75
+    sharpness: 0.25
+    stationaryBlending: 0.95
+    motionBlending: 0.85
+  subpixelMorphologicalAntialiasing:
+    quality: 2
+  fastApproximateAntialiasing:
+    fastMode: 0
+    keepAlpha: 0
+  fog:
+    enabled: 1
+    excludeSkybox: 1
+  debugLayer:
+    lightMeter:
+      width: 512
+      height: 256
+      showCurves: 1
+    histogram:
+      width: 512
+      height: 256
+      channel: 3
+    waveform:
+      exposure: 0.12
+      height: 256
+    vectorscope:
+      size: 256
+      exposure: 0.12
+    overlaySettings:
+      linearDepth: 0
+      motionColorIntensity: 4
+      motionGridSize: 64
+      colorBlindnessType: 0
+      colorBlindnessStrength: 1
+  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
+  m_ShowToolkit: 0
+  m_ShowCustomSorter: 0
+  breakBeforeColorGrading: 0
+  m_BeforeTransparentBundles: []
+  m_BeforeStackBundles: []
+  m_AfterStackBundles: []
 --- !u!1 &8040895768698423804
 GameObject:
   m_ObjectHideFlags: 0
@@ -133,6 +163,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4990637958752395896}
   - component: {fileID: 8774200000472983364}
+  - component: {fileID: 4414901653310920225}
   m_Layer: 0
   m_Name: Camera Manager
   m_TagString: Untagged
@@ -154,7 +185,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3047331589480615781}
-  - {fileID: 6718131058211394688}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8774200000472983364
@@ -178,9 +208,28 @@ MonoBehaviour:
   maximumPivotAngle_first: 10
   targetTransform: {fileID: 0}
   cameraTransform: {fileID: 5165513743386186326}
-  cameraPivot_third: {fileID: 3047331589480615781}
-  cameraPivot_first: {fileID: 6718131058211394688}
+  cameraPivot: {fileID: 3047331589480615781}
   inputManager: {fileID: 0}
+  uiManager: {fileID: 0}
+  cameraAnimator: {fileID: 1521966485219414273}
+  firstPersonVolume: {fileID: 0}
+  thirdPersonVolume: {fileID: 0}
+  currentCameraMode: 1
+--- !u!114 &4414901653310920225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8040895768698423804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13dd9cd5715248a438f2d9dc798024ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orbContainer: {fileID: 0}
+  mainCamera: {fileID: 80327103329275755}
+  uiManager: {fileID: 0}
 --- !u!1 &9155686719290679988
 GameObject:
   m_ObjectHideFlags: 0
@@ -190,8 +239,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3047331589480615781}
+  - component: {fileID: 1521966485219414273}
   m_Layer: 0
-  m_Name: Camera Pivot - 3rd Person
+  m_Name: Camera Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -213,3 +263,25 @@ Transform:
   - {fileID: 5165513743386186326}
   m_Father: {fileID: 4990637958752395896}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1521966485219414273
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9155686719290679988}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 02438cee62f1ff94093445672057efc0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
