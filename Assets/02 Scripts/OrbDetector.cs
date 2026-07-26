@@ -36,12 +36,10 @@ public class OrbDetector : MonoBehaviour
         {
             viewPointPosition = mainCamera.WorldToViewportPoint(orbBehavior.transform.position);
 
-            if (viewPointPosition.x >= 0.45f && viewPointPosition.x <= 0.55f && viewPointPosition.y >= 0.45f && viewPointPosition.y <= 0.55f && viewPointPosition.z > 0f)
-            {
-                uiManager.ChangeDetectorColor(true);
-            }
+            if (viewPointPosition.x >= 0 && viewPointPosition.x <= 1f && viewPointPosition.y >= 0f && viewPointPosition.y <= 1f && viewPointPosition.z > 0f)
+                uiManager.ChangeDetectorColor((viewPointPosition.x / 1) + (viewPointPosition.y / 1) / 2);
             else
-                uiManager.ChangeDetectorColor(false);
+                uiManager.ChangeDetectorColor(-1);
         }
     }
 
