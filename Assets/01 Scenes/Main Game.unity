@@ -230,14 +230,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sharedProfile: {fileID: 11400000, guid: b5f69eb583439db439a56ea3f0223df9, type: 2}
-  isGlobal: 1
+  isGlobal: 0
   blendDistance: 0
   weight: 1
   priority: 0
-  m_PreviousLayer: 6
-  m_PreviousPriority: 0
-  m_TempColliders: []
-  m_InternalProfile: {fileID: 0}
 --- !u!4 &103405740
 Transform:
   m_ObjectHideFlags: 0
@@ -1652,14 +1648,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sharedProfile: {fileID: 11400000, guid: 8ee3530066499e447b8ba0dfdace7e71, type: 2}
-  isGlobal: 1
+  isGlobal: 0
   blendDistance: 0
   weight: 1
   priority: 0
-  m_PreviousLayer: 0
-  m_PreviousPriority: 0
-  m_TempColliders: []
-  m_InternalProfile: {fileID: 0}
 --- !u!4 &1634850401
 Transform:
   m_ObjectHideFlags: 0
