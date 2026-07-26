@@ -2,15 +2,17 @@ using UnityEngine;
 
 public class OrbBehavior : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private Material unactivatedMaterial;
+    [SerializeField] private Material activatedMaterial;
+    [SerializeField] private MeshRenderer orbMesh;
+
+    private void Start()
     {
-        
+        orbMesh.material = unactivatedMaterial;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ActivateOrb()
     {
-        
+        orbMesh.material = activatedMaterial;
     }
 }

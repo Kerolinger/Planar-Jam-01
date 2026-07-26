@@ -18,7 +18,10 @@ public class UiManager : MonoBehaviour
 
     private Animator squareFilledAnimator;
 
+    private bool orbIsInDistance;
+
     public GameObject CameraUI { get => m_cameraUI; set => m_cameraUI = value; }
+    public bool OrbIsInDistance { get => orbIsInDistance; set => orbIsInDistance = value; }
 
     private const string squareFilledBool = "isSquareFIlled";
 
@@ -46,14 +49,14 @@ public class UiManager : MonoBehaviour
             return;
         }
 
-        bool isInDistance = 0.8f >= distancePercentage ? true : false ;
+      OrbIsInDistance = 0.8f >= distancePercentage ? true : false ;
         //m_cameraRing.color = isCorrect ? Color.green : Color.white ;
         //Debug.Log(isCorrect ? "orb is in screen" : "orb is not visible");
 
         float newDistanceDisplay = distancePercentage - 0.75f;
-        squareFilledAnimator.SetBool(squareFilledBool, isInDistance);
+        squareFilledAnimator.SetBool(squareFilledBool, OrbIsInDistance);
         distanceText.text = string.Format("{0:0.00}", 0 > newDistanceDisplay ? 0 : newDistanceDisplay);
-        distanceText.color = isInDistance ? Color.white : Color.cyan;
+        distanceText.color = OrbIsInDistance ? Color.white : Color.cyan;
     }
 
     public void ChangeDistance(float newDistance)
@@ -64,7 +67,7 @@ public class UiManager : MonoBehaviour
     public void ZoomCircle(float yInput)
     {
         float newZoomValue = m_cameraRing.rectTransform.localScale.x + (-yInput * cameraZoomSpeed);
-        Debug.Log("zooming! new zoom value:" + newZoomValue);
+
         m_cameraRing.rectTransform.localScale = new Vector3(newZoomValue, newZoomValue, newZoomValue);
 
         if (m_cameraRing.rectTransform.localScale.x < minCameraZoomValue)

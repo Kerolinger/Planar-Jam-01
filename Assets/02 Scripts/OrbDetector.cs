@@ -14,6 +14,8 @@ public class OrbDetector : MonoBehaviour
 
     private Vector3 viewPointPosition;
 
+    private OrbBehavior currentOrb;
+
     public bool IsDetecting { get => isDetecting; set => isDetecting = value; }
 
     void Awake()
@@ -37,14 +39,28 @@ public class OrbDetector : MonoBehaviour
             viewPointPosition = mainCamera.WorldToViewportPoint(orbBehavior.transform.position);
 
             if (viewPointPosition.x >= 0 && viewPointPosition.x <= 1f && viewPointPosition.y >= 0f && viewPointPosition.y <= 1f && viewPointPosition.z > 0f)
+            {
                 uiManager.ChangeDetectorColor((viewPointPosition.x / 1) + (viewPointPosition.y / 1) / 2);
+                currentOrb = orbBehavior;
+            }
             else
+            {
                 uiManager.ChangeDetectorColor(-1);
+                currentOrb = null;
+            }
         }
     }
 
     private void OnDisable()
     {
         orbBehaviors.Clear();
+    }
+
+    public void TryActivateOrb()
+    {
+        if (currentOrb == null)
+            return;
+
+        currentOrb.ActivateOrb();
     }
 }

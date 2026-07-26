@@ -9,6 +9,7 @@ public class InputManager : MonoBehaviour
     [SerializeField] private Rigidbody playerRigidbody;
     [SerializeField] private CameraManager cameraManager;
     [SerializeField] private UiManager uiManager;
+    [SerializeField] private OrbDetector orbDetector;
 
     [Header("Customizable")]
     [SerializeField] private float movementSpeed;
@@ -114,10 +115,19 @@ public class InputManager : MonoBehaviour
 
     private void OnCameraSnapTaken(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
-        if (cameraManager.CurrentCameraMode == CameraManager.cameraMode.FirstPerson)
+        if (cameraManager.CurrentCameraMode == CameraManager.cameraMode.FirstPerson )
         {
-            uiManager.CameraSnapFX();
-            AudioManager.instance.Play("SFX_cameraSnap");
+            if(uiManager.OrbIsInDistance)
+            {
+                uiManager.CameraSnapFX();
+                AudioManager.instance.Play("SFX_cameraSnap");
+                orbDetector.TryActivateOrb();
+            }
+            else
+            {
+                Debug.Log("Orb is not visible!");
+            }
+
         }
     }
 
