@@ -24,7 +24,7 @@ public class UiManager : MonoBehaviour
 
     public void ChangeDetectorColor(bool isCorrect)
     {
-        CameraRing.color = isCorrect ? Color.green : Color.white ;
+        m_cameraRing.color = isCorrect ? Color.green : Color.white ;
         Debug.Log(isCorrect ? "orb is in screen" : "orb is not visible");
     }
 
